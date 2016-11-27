@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width = device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <title>Neighborhood Map Project</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        #map {
+            height: 800px;
+            width: 75%;
+            right: 0px;
+        }
+        .navigation {
+            width: 25%;
+        }
+        .container {
+            display: flex;
+        }
+        .navigation {
+            background-color: #006666;
+            color: white;
+        }
+        .nav {
+            list-style: none;
+            padding: 0;
+        }
+        .items {
+            padding: 1em 2em;
+            border-bottom: 1px solid #000;
+            margin: 0.3em;
+        }
+        .search_map {
+            font-size: 1em;
+            width: 90%;
+            padding: 0.6em;
+            margin-top: 0.5em;
+            margin-left: 5%;
+        }
+        .align {
+            margin-right: 5%;
+            margin-left: 5%;
+            width: 100%;
+        }
+        .items {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigation">
+            <h2 class="align"> Search your destination ! </h2>
+            <input type="text" value="" id="search_map" class="search_map" data-bind="textInput: search">
+            <ul class="nav" id="nav" data-bind="foreach:places">
+                <li class="items" id="items" data-bind="text:title,click:$parent.openInfo,visible:visibility"></li>
+            </ul>
+        </div>
+        <div id="map"></div>
+    </div>
+</body>
+<script async src="library/knockout-3.2.0.js"></script>
+<script async src="library/jquery.min.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyC8dtzRCgVlzC905jc3jSo22vdAIZGsUgg"></script>
+<script src="main.js"></script>
+</body>
+<html>
